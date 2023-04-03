@@ -1,0 +1,109 @@
+.modal {
+  font: 1em/1.5 Nunito, Helvetica, sans-serif;
+  font-size: calc(16px + (20 - 16) * (100vw - 320px) / (2560 - 320));
+  background-color: hsl(223, 10%, 95%);
+  border-radius: 1em;
+  box-shadow: 0 0.75em 1em hsla(223, 10%, 5%, 0.3);
+  color: hsl(223, 10%, 5%);
+  width: calc(100% - 3em);
+  max-width: 34.5em;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.3s,
+  color 0.3s;
+}
+
+.modal:before {
+  background-color: hsl(223, 90%, 60%);
+  border-radius: 50%;
+  content: "";
+  filter: blur(60px);
+  opacity: 0.15;
+  position: absolute;
+  top: -8em;
+  right: -15em;
+  width: 25em;
+  height: 25em;
+  z-index: 0;
+  transition: background-color 0.3s;
+}
+
+
+.modal__body {
+  position: relative;
+  z-index: 1;
+}
+
+.modal__body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.875em 2em;
+}
+
+
+.modal__col + .modal__col {
+  flex: 1;
+  margin-top: 1.875em;
+}
+
+.modal__icon {
+  display: block;
+  margin: auto;
+  width: 2.25em;
+  height: 2.25em;
+}
+
+.modal__icon--blue g {
+  stroke: hsl(223, 90%, 50%);
+}
+
+.modal__icon circle,
+.modal__icon line,
+.modal__icon polyline {
+  animation: sdo 0.25s ease-in-out forwards;
+  transition: stroke 0.3s;
+}
+
+.modal__icon :nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.modal__icon :nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.modal__icon-sdo10 {
+  stroke-dashoffset: 10;
+}
+
+.modal__icon-sdo14 {
+  stroke-dashoffset: 14.2;
+}
+
+.modal__icon-sdo69 {
+  stroke-dashoffset: 69.12;
+  transform: rotate(-90deg);
+  transform-origin: 12px 12px;
+}
+
+.modal__icon--blue g {
+  stroke: hsl(223, 90%, 60%);
+}
+
+@keyframes sdo {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal__body {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .modal__col + .modal__col {
+    margin-top: 0;
+    margin-left: 1.875em;
+  }
+}
